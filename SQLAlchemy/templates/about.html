@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+</head>
+<body>
+    
+    <h1>{{ current_title }}</h1>
+    {% extends "base.html" %}
+
+    {% block main %}
+
+    <p>Some content on the about page!</p>
+    <form action="/about" method="post">
+        {{ form.csrf_token() }}
+        {{ form.title.label }}
+        {{ form.title }}
+        {{ form.submit }}
+    </form>
+
+    {% if title %}
+        <h1> {{ title }}</h1>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>
